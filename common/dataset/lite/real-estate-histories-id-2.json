@@ -1,0 +1,18 @@
+[
+    {
+        "owner_id": "1",
+        "real_estate_id": "2"
+    },
+    {
+        "owner_id": "2",
+        "real_estate_id": "2"
+    },
+    {
+        "owner_id": "3",
+        "real_estate_id": "2"
+    },
+    {
+        "owner_id": "4",
+        "real_estate_id": "2"
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "owner_id": "0",
+        "real_estate_id": "1"
+    },
+    {
+        "owner_id": "1",
+        "real_estate_id": "2"
+    },
+    {
+        "owner_id": "2",
+        "real_estate_id": "2"
+    },
+    {
+        "owner_id": "3",
+        "real_estate_id": "2"
+    },
+    {
+        "owner_id": "4",
+        "real_estate_id": "2"
+    },
+    {
+        "owner_id": "5",
+        "real_estate_id": "3"
+    },
+    {
+        "owner_id": "6",
+        "real_estate_id": "3"
+    },
+    {
+        "owner_id": "7",
+        "real_estate_id": "3"
+    },
+    {
+        "owner_id": "8",
+        "real_estate_id": "3"
+    },
+    {
+        "owner_id": "9",
+        "real_estate_id": "3"
+    }
+]

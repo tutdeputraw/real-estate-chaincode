@@ -1,0 +1,82 @@
+[
+    {
+        "userModel_id": "0",
+        "userModel_name": "Janie Witting MD",
+        "userModel_npwp_number": "68.038.7-000.000",
+        "userModel_phone_numberNumber": "+62 548-7652-4848",
+        "userModel_email": "Garrison.Skiles51@hotmail.com",
+        "role": "property-advisor"
+    },
+    {
+        "userModel_id": "1",
+        "userModel_name": "Marion Cormier",
+        "userModel_npwp_number": "59.113.0-000.000",
+        "userModel_phone_numberNumber": "+62 012-3528-5112",
+        "userModel_email": "Savion_Kessler57@yahoo.com",
+        "role": "property-owner-buyer"
+    },
+    {
+        "userModel_id": "2",
+        "userModel_name": "Isabel Collins",
+        "userModel_npwp_number": "14.049.4-000.000",
+        "userModel_phone_numberNumber": "+62 328-7279-6799",
+        "userModel_email": "Cleta.Yundt@yahoo.com",
+        "role": "property-agent"
+    },
+    {
+        "userModel_id": "3",
+        "userModel_name": "Marion Mitchell",
+        "userModel_npwp_number": "72.566.2-000.000",
+        "userModel_phone_numberNumber": "+62 517-8775-1036",
+        "userModel_email": "Evert.Huels@hotmail.com",
+        "role": "property-advisor"
+    },
+    {
+        "userModel_id": "4",
+        "userModel_name": "Ana Rolfson",
+        "userModel_npwp_number": "80.487.3-000.000",
+        "userModel_phone_numberNumber": "+62 686-3086-8663",
+        "userModel_email": "Tess1@hotmail.com",
+        "role": "property-advisor"
+    },
+    {
+        "userModel_id": "5",
+        "userModel_name": "Mary Kreiger",
+        "userModel_npwp_number": "99.017.0-000.000",
+        "userModel_phone_numberNumber": "+62 140-4506-3953",
+        "userModel_email": "Assunta81@yahoo.com",
+        "role": "property-owner-buyer"
+    },
+    {
+        "userModel_id": "6",
+        "userModel_name": "Darin Hintz",
+        "userModel_npwp_number": "20.572.0-000.000",
+        "userModel_phone_numberNumber": "+62 930-4312-6063",
+        "userModel_email": "Edyth_Hilpert-Beahan47@yahoo.com",
+        "role": "property-agent"
+    },
+    {
+        "userModel_id": "7",
+        "userModel_name": "Celia McGlynn MD",
+        "userModel_npwp_number": "70.909.9-000.000",
+        "userModel_phone_numberNumber": "+62 877-5202-0883",
+        "userModel_email": "Ari10@hotmail.com",
+        "role": "property-agent"
+    },
+    {
+        "userModel_id": "8",
+        "userModel_name": "Elias Rosenbaum MD",
+        "userModel_npwp_number": "85.577.3-000.000",
+        "userModel_phone_numberNumber": "+62 632-8011-6194",
+        "userModel_email": "Joanny_Fahey3@yahoo.com",
+        "role": "property-advisor"
+    },
+    {
+        "userModel_id": "9",
+        "userModel_name": "Rita Schiller",
+        "userModel_npwp_number": "51.310.4-000.000",
+        "userModel_phone_numberNumber": "+62 118-5186-1284",
+        "userModel_email": "Chaim.Bergstrom-Treutel@hotmail.com",
+        "role": "property-advisor"
+    }
+]
