@@ -230,11 +230,11 @@ func (s *RealEstateChaincode) RealEstate_GetById(APIstub shim.ChaincodeStubInter
 func (s *RealEstateChaincode) RealEstate_GetAllWithPagination(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	startKey := constant.State_RealEstate + "0"
 	endKey := constant.State_RealEstate + "999"
-	pageSize, err := strconv.ParseInt(args[1], 10, 32)
+	pageSize, err := strconv.ParseInt(args[0], 10, 32)
 	if err != nil {
 		return shim.Error(err.Error())
 	}
-	bookmark := args[0]
+	bookmark := args[1]
 
 	resultsIterator, responseMetadata, err := APIstub.GetStateByRangeWithPagination(startKey, endKey, int32(pageSize), bookmark)
 	if err != nil {
