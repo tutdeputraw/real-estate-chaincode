@@ -268,6 +268,27 @@ func Test_registerNewRealEstate(t *testing.T) {
 	// }
 }
 
+// func Test_query(t *testing.T) {
+// 	cc := new(cc.RealEstateChaincode)
+// 	stub := shimtest.NewMockStub("real_estate", cc)
+
+// 	helper.Test_CheckInvoke(t, stub, [][]byte{
+// 		[]byte("User_Init"),
+// 	})
+// 	helper.Test_CheckInvoke(t, stub, [][]byte{
+// 		[]byte("RealEstate_Init"),
+// 	})
+
+// 	// queryString := `{"selector":{"docType":"asset","owner":"Alice"}}`
+// 	queryResult := helper.Test_CheckInvoke(t, stub, [][]byte{
+// 		[]byte("QueryWithPagination"),
+// 		[]byte(`{"selector": {"realEstateModel_owner_id": "4"}`),
+// 		[]byte("10"),
+// 		[]byte(""),
+// 	})
+// 	fmt.Println("JAJO:", string(queryResult))
+// }
+
 func Test_queryRealEstateByOwner(t *testing.T) {
 	cc := new(cc.RealEstateChaincode)
 	stub := shimtest.NewMockStub("real_estate", cc)

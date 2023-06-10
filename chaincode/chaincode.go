@@ -37,6 +37,8 @@ func (s *RealEstateChaincode) Invoke(APIstub shim.ChaincodeStubInterface) sc.Res
 		return s.RealEstate_GetById(APIstub, args)
 	case "RealEstate_GetAll":
 		return s.RealEstate_GetAll(APIstub)
+	case "RealEstate_GetAllWithPagination":
+		return s.RealEstate_GetAllWithPagination(APIstub, args)
 	case "RealEstate_GetByOwner":
 		return s.RealEstate_GetByOwner(APIstub, args)
 	case "RealEstate_CheckIfRealEstateHasAlreadyRegistered":

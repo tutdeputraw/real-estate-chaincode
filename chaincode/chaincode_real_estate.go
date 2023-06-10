@@ -227,6 +227,32 @@ func (s *RealEstateChaincode) RealEstate_GetById(APIstub shim.ChaincodeStubInter
 	return shim.Success(realEstateAsBytes)
 }
 
+func (s *RealEstateChaincode) RealEstate_GetAllWithPagination(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+	startKey := constant.State_RealEstate + "0"
+	endKey := constant.State_RealEstate + "999"
+	pageSize, err := strconv.ParseInt(args[1], 10, 32)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	bookmark := args[0]
+
+	resultsIterator, responseMetadata, err := APIstub.GetStateByRangeWithPagination(startKey, endKey, int32(pageSize), bookmark)
+	if err != nil {
+		return shim.Error("failed to get state by range with pagination")
+	}
+	defer resultsIterator.Close()
+
+	buffer, err := constructQueryResponseFromIterator(resultsIterator)
+	if err != nil {
+		return shim.Error("failed to construct query response from iterator")
+	}
+
+	bufferWithPaginationInfo := addPaginationMetadataToQueryResults(buffer, responseMetadata)
+	fmt.Printf("- getQueryResultForQueryString queryResult:\n%s\n", bufferWithPaginationInfo.String())
+
+	return shim.Success(buffer.Bytes())
+}
+
 func (s *RealEstateChaincode) RealEstate_GetAll(APIstub shim.ChaincodeStubInterface) sc.Response {
 	startKey := constant.State_RealEstate + "0"
 	endKey := constant.State_RealEstate + "999"
