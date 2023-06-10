@@ -21,6 +21,8 @@ func (s *RealEstateChaincode) Invoke(APIstub shim.ChaincodeStubInterface) sc.Res
 
 	switch function {
 	// Query
+	// case "PokokString":
+	// 	return s.PokokString()
 	case "Query":
 		return s.Query(APIstub, args)
 	case "QueryWithPagination":

@@ -51,25 +51,45 @@ func getQueryResultForQueryStringWithPagination(stub shim.ChaincodeStubInterface
 	return buffer.Bytes(), nil
 }
 
+// func (s *RealEstateChaincode) PokokString() sc.Response {
+// 	result := bytes.NewBufferString("")
+// 	response := bytes.NewBufferString("[{}, {}, {}]")
+// 	var responseMetaCountRecord int32 = 10
+// 	responseMetaBookmark := "selanjute"
+
+// 	result.WriteString(fmt.Sprintf(`{
+// 		"response": %v,
+// 		"metadata": {
+// 			"RecordsCount": %v,
+// 			"Bookmark": %v
+// 		}
+// 	}`, response, responseMetaCountRecord, responseMetaBookmark))
+
+// 	// str := "Hello, World!"
+// 	// fmt.Fprintf(result, "%s", str)
+// 	fmt.Println("XXY:", result.String())
+// 	return shim.Success(nil)
+// }
+
 func addPaginationMetadataToQueryResults(buffer *bytes.Buffer, responseMetadata *sc.QueryResponseMetadata) *bytes.Buffer {
-	// var result *bytes.Buffer
+	// buffer.WriteString("[{\"ResponseMetadata\":{\"RecordsCount\":")
+	// buffer.WriteString("\"")
+	// buffer.WriteString(fmt.Sprintf("%v", responseMetadata.FetchedRecordsCount))
+	// buffer.WriteString("\"")
+	// buffer.WriteString(", \"Bookmark\":")
+	// buffer.WriteString("\"")
+	// buffer.WriteString(responseMetadata.Bookmark)
+	// buffer.WriteString("\"}}]")
 
-	// result.WriteString(fmt.Sprintf(`{
-	// 	"response": %v,
-	// 	"metadata": {
-	// 		"RecordsCount": %v,
-	// 		"Bookmark": %v
-	// 	}
-	// }`, buffer, responseMetadata.FetchedRecordsCount, responseMetadata.Bookmark))
+	result := bytes.NewBufferString("")
 
-	buffer.WriteString("[{\"ResponseMetadata\":{\"RecordsCount\":")
-	buffer.WriteString("\"")
-	buffer.WriteString(fmt.Sprintf("%v", responseMetadata.FetchedRecordsCount))
-	buffer.WriteString("\"")
-	buffer.WriteString(", \"Bookmark\":")
-	buffer.WriteString("\"")
-	buffer.WriteString(responseMetadata.Bookmark)
-	buffer.WriteString("\"}}]")
+	result.WriteString(fmt.Sprintf(`{
+		"response": %v,
+		"metadata": {
+			"RecordsCount": %v,
+			"Bookmark": %v
+		}
+	}`, buffer, responseMetadata.FetchedRecordsCount, responseMetadata.Bookmark))
 
-	return buffer
+	return result
 }

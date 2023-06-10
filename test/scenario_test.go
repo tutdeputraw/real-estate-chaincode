@@ -268,6 +268,15 @@ func Test_registerNewRealEstate(t *testing.T) {
 	// }
 }
 
+// func Test_PokokString(t *testing.T) {
+// 	cc := new(cc.RealEstateChaincode)
+// 	stub := shimtest.NewMockStub("real_estate", cc)
+
+// 	helper.Test_CheckInvoke(t, stub, [][]byte{
+// 		[]byte("PokokString"),
+// 	})
+// }
+
 // func Test_query(t *testing.T) {
 // 	cc := new(cc.RealEstateChaincode)
 // 	stub := shimtest.NewMockStub("real_estate", cc)
