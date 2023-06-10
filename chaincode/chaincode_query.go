@@ -32,7 +32,7 @@ func getQueryResultForQueryString(stub shim.ChaincodeStubInterface, queryString 
 	}
 	defer resultsIterator.Close()
 
-	buffer, err := constructQueryResponseFromIterator(resultsIterator)
+	buffer, err := constructQueryResponseFromIteratorQuery(resultsIterator)
 	if err != nil {
 		return nil, err
 	}
@@ -42,7 +42,7 @@ func getQueryResultForQueryString(stub shim.ChaincodeStubInterface, queryString 
 	return buffer.Bytes(), nil
 }
 
-func constructQueryResponseFromIterator(resultsIterator shim.StateQueryIteratorInterface) (*bytes.Buffer, error) {
+func constructQueryResponseFromIteratorQuery(resultsIterator shim.StateQueryIteratorInterface) (*bytes.Buffer, error) {
 	// buffer is a JSON array containing QueryResults
 	var buffer bytes.Buffer
 	buffer.WriteString("{")
@@ -70,7 +70,7 @@ func constructQueryResponseFromIterator(resultsIterator shim.StateQueryIteratorI
 		buffer.WriteString("}")
 		bArrayMemberAlreadyWritten = true
 	}
-	buffer.WriteString("],")
+	buffer.WriteString("]}")
 
 	return &buffer, nil
 }

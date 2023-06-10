@@ -242,7 +242,7 @@ func (s *RealEstateChaincode) RealEstate_GetAllWithPagination(APIstub shim.Chain
 	}
 	defer resultsIterator.Close()
 
-	buffer, err := constructQueryResponseFromIterator(resultsIterator)
+	buffer, err := constructQueryResponseFromIteratorQueryWithPagination(resultsIterator)
 	if err != nil {
 		return shim.Error("failed to construct query response from iterator")
 	}

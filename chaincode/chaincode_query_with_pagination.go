@@ -39,7 +39,7 @@ func getQueryResultForQueryStringWithPagination(stub shim.ChaincodeStubInterface
 	}
 	defer resultsIterator.Close()
 
-	buffer, err := constructQueryResponseFromIterator(resultsIterator)
+	buffer, err := constructQueryResponseFromIteratorQueryWithPagination(resultsIterator)
 	if err != nil {
 		return nil, err
 	}
@@ -100,4 +100,37 @@ func addPaginationMetadataToQueryResults(buffer *bytes.Buffer, responseMetadata 
 	// }`, buffer, responseMetadata.FetchedRecordsCount, responseMetadata.Bookmark))
 
 	return buffer
+}
+
+func constructQueryResponseFromIteratorQueryWithPagination(resultsIterator shim.StateQueryIteratorInterface) (*bytes.Buffer, error) {
+	// buffer is a JSON array containing QueryResults
+	var buffer bytes.Buffer
+	buffer.WriteString("{")
+	buffer.WriteString("\"data\":")
+	buffer.WriteString("[")
+
+	bArrayMemberAlreadyWritten := false
+	for resultsIterator.HasNext() {
+		queryResponse, err := resultsIterator.Next()
+		if err != nil {
+			return nil, err
+		}
+		// Add a comma before array members, suppress it for the first array member
+		if bArrayMemberAlreadyWritten == true {
+			buffer.WriteString(",")
+		}
+		buffer.WriteString("{\"Key\":")
+		buffer.WriteString("\"")
+		buffer.WriteString(queryResponse.Key)
+		buffer.WriteString("\"")
+
+		buffer.WriteString(", \"Record\":")
+		// Record is a JSON object, so we write as-is
+		buffer.WriteString(string(queryResponse.Value))
+		buffer.WriteString("}")
+		bArrayMemberAlreadyWritten = true
+	}
+	buffer.WriteString("],")
+
+	return &buffer, nil
 }
