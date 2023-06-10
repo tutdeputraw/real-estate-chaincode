@@ -52,24 +52,24 @@ func getQueryResultForQueryStringWithPagination(stub shim.ChaincodeStubInterface
 }
 
 func addPaginationMetadataToQueryResults(buffer *bytes.Buffer, responseMetadata *sc.QueryResponseMetadata) *bytes.Buffer {
-	var result *bytes.Buffer
+	// var result *bytes.Buffer
 
-	result.WriteString(fmt.Sprintf(`{
-		"response": %v,
-		"metadata": {
-			"RecordsCount": %v,
-			"Bookmark": %v
-		}
-	}`, buffer, responseMetadata.FetchedRecordsCount, responseMetadata.Bookmark))
+	// result.WriteString(fmt.Sprintf(`{
+	// 	"response": %v,
+	// 	"metadata": {
+	// 		"RecordsCount": %v,
+	// 		"Bookmark": %v
+	// 	}
+	// }`, buffer, responseMetadata.FetchedRecordsCount, responseMetadata.Bookmark))
 
-	// buffer.WriteString("[{\"ResponseMetadata\":{\"RecordsCount\":")
-	// buffer.WriteString("\"")
-	// buffer.WriteString(fmt.Sprintf("%v", responseMetadata.FetchedRecordsCount))
-	// buffer.WriteString("\"")
-	// buffer.WriteString(", \"Bookmark\":")
-	// buffer.WriteString("\"")
-	// buffer.WriteString(responseMetadata.Bookmark)
-	// buffer.WriteString("\"}}]")
+	buffer.WriteString("[{\"ResponseMetadata\":{\"RecordsCount\":")
+	buffer.WriteString("\"")
+	buffer.WriteString(fmt.Sprintf("%v", responseMetadata.FetchedRecordsCount))
+	buffer.WriteString("\"")
+	buffer.WriteString(", \"Bookmark\":")
+	buffer.WriteString("\"")
+	buffer.WriteString(responseMetadata.Bookmark)
+	buffer.WriteString("\"}}]")
 
-	return result
+	return buffer
 }
