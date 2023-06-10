@@ -72,14 +72,22 @@ func getQueryResultForQueryStringWithPagination(stub shim.ChaincodeStubInterface
 // }
 
 func addPaginationMetadataToQueryResults(buffer *bytes.Buffer, responseMetadata *sc.QueryResponseMetadata) *bytes.Buffer {
-	buffer.WriteString("[{\"ResponseMetadata\":{\"RecordsCount\":")
+	// buffer.WriteString("{\"ResponseMetadata\":{\"RecordsCount\":")
+	// buffer.WriteString("\"")
+	// buffer.WriteString(fmt.Sprintf("%v", responseMetadata.FetchedRecordsCount))
+	// buffer.WriteString("\"")
+	// buffer.WriteString(", \"Bookmark\":")
+	// buffer.WriteString("\"")
+	// buffer.WriteString(responseMetadata.Bookmark)
+	// buffer.WriteString("\"}}")
+	buffer.WriteString("\"ResponseMetadata\":{\"RecordsCount\":")
 	buffer.WriteString("\"")
 	buffer.WriteString(fmt.Sprintf("%v", responseMetadata.FetchedRecordsCount))
 	buffer.WriteString("\"")
 	buffer.WriteString(", \"Bookmark\":")
 	buffer.WriteString("\"")
 	buffer.WriteString(responseMetadata.Bookmark)
-	buffer.WriteString("\"}}]")
+	buffer.WriteString("\"}}")
 
 	// result := bytes.NewBufferString("")
 
