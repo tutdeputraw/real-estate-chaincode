@@ -61,6 +61,8 @@ func (s *RealEstateChaincode) Invoke(APIstub shim.ChaincodeStubInterface) sc.Res
 		return s.User_CheckIfUserExist(APIstub, args)
 	case "User_GetById":
 		return s.User_GetById(APIstub, args)
+	case "User_GetAllWithPagination":
+		return s.User_GetAllWithPagination(APIstub, args)
 	case "User_GetAll":
 		return s.User_GetAll(APIstub)
 	case "User_Create":

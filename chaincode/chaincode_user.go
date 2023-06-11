@@ -119,6 +119,32 @@ func (s *RealEstateChaincode) User_GetById(APIstub shim.ChaincodeStubInterface, 
 	return shim.Success(realEstateAsBytes)
 }
 
+func (s *RealEstateChaincode) User_GetAllWithPagination(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+	startKey := constant.State_User + "0"
+	endKey := constant.State_User + "999"
+	pageSize, err := strconv.ParseInt(args[0], 10, 32)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	bookmark := args[1]
+
+	resultsIterator, responseMetadata, err := APIstub.GetStateByRangeWithPagination(startKey, endKey, int32(pageSize), bookmark)
+	if err != nil {
+		return shim.Error("failed to get state by range with pagination")
+	}
+	defer resultsIterator.Close()
+
+	buffer, err := constructQueryResponseFromIteratorQueryWithPagination(resultsIterator)
+	if err != nil {
+		return shim.Error("failed to construct query response from iterator")
+	}
+
+	bufferWithPaginationInfo := addPaginationMetadataToQueryResults(buffer, responseMetadata)
+	fmt.Printf("- getQueryResultForQueryString queryResult:\n%s\n", bufferWithPaginationInfo.String())
+
+	return shim.Success(buffer.Bytes())
+}
+
 func (s *RealEstateChaincode) User_GetAll(APIstub shim.ChaincodeStubInterface) sc.Response {
 	startKey := constant.State_User + "0"
 	endKey := constant.State_User + "999"
