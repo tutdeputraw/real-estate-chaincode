@@ -21,7 +21,7 @@ func (s *RealEstateChaincode) RealEstateHistory_Create(APIstub shim.ChaincodeStu
 		// Id:           args[0],
 		OwnerID:      args[1],
 		RealEstateId: args[2],
-		DateTime:     args[3],
+		// DateTime:     args[3],
 	}
 
 	realEstateHistoryAsBytes, _ := json.Marshal(realEstateHistory)
